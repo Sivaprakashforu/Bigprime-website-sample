@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="description" content="HTML">
+        <title>HTML Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        
+        <style>
+            
+            .openbar{                
+                padding: 15px;
+                background-color: #6ab04c;
+                background-color: #686868;
+                background-color: #2f3640;
+                background-color: #313131;
+                background-color: #000000;
+                background-color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                width: 100%;
+            }
+            
+            .companylogo{
+                display: flex;
+                justify-content: space-around;
+            }
+            
+            header img{
+                width:280px;                
+            }
+            
+            .companyname{
+                font-family: 'League Spartan';
+                color: white;
+                font-size: 45px;
+                margin-left: 14px;
+                margin-right: 30px;
+            }
+            
+            .companyname:hover
+            {
+            }
+            
+            .threebar{
+                display: none;
+            }
+            
+            .mobspl{
+                text-align: center;
+            }
+            
+            .navigation{
+                display: flex;
+                align-items: center;
+            }
+            .navigation a{
+                margin-right:30px;
+                font-family: Josefin Sans;
+                font-size: 14px;
+                letter-spacing: 1px;
+                color: #000;
+                font-family: 'Josefin Sans';
+                text-decoration: none;
+            }
+             .dropdowncontainer{
+                display: inline-block;
+            }
+            
+            .dropdown{
+                z-index: 1;
+                display:none;
+                position:absolute;
+                background-color: white;
+                box-shadow: 0 0 5px #BDBDBD;
+            }
+            
+            .dropdown a{
+                display: block;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                margin-right: 0;
+                padding: 12px;
+                padding-left: 30px;
+                color: #686868;
+            }
+            
+            .dropdown a:hover{
+                background-color: #6ab04c;
+                background-color: #525252;
+                background-color: #000000;
+                color: white;
+                transition: transform 0.6s;
+            }
+            
+            .dropheader:hover ~ .dropdown{
+                display: block;
+            }
+            
+            .dropdown:hover{
+                display: block;
+                transition: transform 0.3s;
+            }
+            
+            .sidenavigation{
+                padding: 10px;
+                position: -webkit-sticky;
+                position: sticky;
+                cursor: pointer;
+                margin-top: 10px;
+                padding-left: 50px;
+                color:white;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            
+            .sidenavicons
+              {
+              display: flex;
+              margin-bottom: 30px;
+              }
+            
+              .sidenavicons img
+              {
+                width: 40px;
+                height: 40px;
+                margin-right: 15px;
+                vertical-align: middle;
+              }
+
+              .sidenavigation li.head
+              {
+              font-family: 'Josefin Sans';
+              font-size: 14px;
+               line-height: 30px;
+              color:white;
+               font-weight: bold;
+               }
+
+              .sidenavigation li.head:hover
+              {
+                color:#C70039;
+
+              }
+
+              .sidenavigation a
+              {
+              color:white;
+              font-family: 'Josefin Sans';
+              font-size: 14px;
+               line-height: 15px;
+               text-decoration:none;
+              width: 180px;
+              }
+            
+              .sidenavigation a:hover
+              {
+                color:#C70039;
+
+              }
+
+              .sidenavigation a.head
+              {
+              font-size: 14px;
+              line-height: 65px;
+              color:black;
+              margin-left: -16px;
+              }
+            
+              .sidenavigation a.head:hover
+              {
+              }
+            
+            .sidenavigation a.first{
+              font-size: 25px;
+              letter-spacing:2px;
+              line-height: 0;
+              padding-bottom: 18px;
+              color:white;
+              margin-left: -16px;
+            }
+            
+            .fulldropdowncontainer{
+                display: inline-block;
+            }
+            
+            .fulldropdown{
+                display: none;
+                position: absolute;
+                margin-left: -300px;
+                width: 1050px;
+                background-color: white;
+                padding: 10px;
+                box-shadow: 0 0 5px #BDBDBD;
+            }
+            
+            .fulldropdown a{
+                font-size: 14px;
+                vertical-align: middle;
+                cursor: pointer;
+                color: #686868;
+                letter-spacing: 0.2px;
+            }
+            
+            .fulldropdown img{
+                vertical-align: middle;
+                cursor: pointer;
+                margin-right: 5px;
+            }
+            
+            .fulldropdown p{
+                max-width: 180px;
+                font-size: 12px;
+                margin-bottom: 5px;
+                padding-left: 38px;
+                cursor: pointer;
+                line-height: 18px;
+                font-family: 'Josefin Sans';
+                text-align: left;
+            }
+            
+            
+            
+            .fulldropdown .tangosection{
+                margin-left: 20px;
+                margin-right: 20px;
+                float:left;
+            }
+            
+            .fulldropdown .tangosection .product{
+                padding: 5px;
+                color: #000000;
+                
+            }
+            
+            .fulldropdown img{
+                width:32px;
+                height:32px;
+                float:left;
+            }
+            .fulldropdown .tangosection .product:hover{
+                background-color: #FFEBEE;
+                border-radius: 4px;
+            }
+            
+            .fulldropdown .businesssection{
+                margin-right: 20px;
+                float:left;
+            }
+            
+            .fulldropdown .businesssection .product{
+                padding: 5px;
+                color: #000000;
+               
+                
+            }
+            .fulldropdown .businesssection .product:hover{
+                background-color: #F1F8F9;
+                border-radius: 4px;
+            }   
+            
+            .fulldropdown .officesection{
+                margin-top: 20px;
+                margin-right: 20px;
+                float:left;
+            }
+            
+            .fulldropdown .officesection .product{
+                padding: 5px;
+                color: #000000;                
+            }
+            
+            .fulldropdown .officesection .product:hover{
+                background-color: #E0F2F1;
+                border-radius: 4px;
+            }   
+            
+            .fulldropdown .othersection{
+                margin-top: 20px;
+                
+                
+                float:left;
+            }
+            
+            .fulldropdown .othersection .product{
+                padding: 5px;
+                color: #000000;
+                
+                
+            }
+            .fulldropdown .othersection .product:hover{
+                background-color: #E3F2FD;
+                border-radius: 4px;
+            }
+            
+            .fulldropdownheader:hover ~.fulldropdown{
+                display: block;
+            }
+            
+            .fulldropdown .fulldropdownupper{
+                display:flex;
+            }
+            
+            .fulldropdownheader:hover ~.fulldropdownupper{
+                display: flex;
+            }
+            
+            .fulldropdown .fulldropdownfooter{
+                background-image: linear-gradient(90deg, #2E7D32 2%, #8BC34A 80%);
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .fulldropdown .fulldropdownfooter p.spl{
+                font-family: 'Josefin Sans';
+                font-size: 13px;
+                color:white;
+                letter-spacing: 0.5px;
+                max-width: 100%;
+                margin-bottom: 0;
+                padding-left: 0;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 30px;
+            }
+
+            .fulldropdown .fulldropdownfooter a
+            {
+                display: inline-block;
+                background-color: black;
+                color:#ffffff;
+                outline:none !important;
+                border: 0px !important;
+                font-size: 13px;
+                font-family: Josefin Sans;
+                padding: 25px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                border-radius: 1px;
+            }
+
+            .fulldropdown .fulldropdownfooter  a:hover
+            {
+                background-color: #ffffff;
+                color:black;
+            }
+
+            .fulldropdown:hover{
+                display: block;
+            }
+            
+            .fulldropdown .fulldropdownfooter{
+                clear: both;
+                background-image: linear-gradient(90deg, #2E7D32 2%, #8BC34A 80%);
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .fulldropdown .fulldropdownfooter p.spl{
+                padding: 25px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-family: 'Josefin Sans';
+                font-size: 13px;
+                color:white;
+                letter-spacing: 0.5px;
+                max-width: 100%;
+                margin-bottom: 0;
+                padding-left: 0;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 30px;
+            }
+
+            .fulldropdown .fulldropdownfooter a
+            {
+                display: inline-block;
+                background-color: black;
+                color:#ffffff;
+                outline:none !important;
+                border: 0px !important;
+                font-size: 13px;
+                font-family: Josefin Sans;
+                padding: 25px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                border-radius: 1px;
+            }
+
+            .fulldropdown .fulldropdownfooter  a:hover
+            {
+                background-color: #ffffff;
+                color:black;
+            }
+            
+            /*.bullet.spl li
+            {
+                color:white;
+                font-size: 14px;
+            }
+            .bullet ul{
+                margin-top: 18px;
+                margin-bottom: 18px;
+            }
+            
+            .bullet.spl{
+                margin-left: 200px;
+            }
+            
+            .bullet li
+            {
+                font-size: 15px;
+                line-height: 30px;
+                text-align: justify;
+                color:#000000;
+                letter-spacing: 0.5px;
+                font-family: Josefin Sans;
+                margin: 0;
+                padding: 10px 0 10px 34px;
+                list-style: none;
+                background-image:  url('');
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 16px;
+                width:700px;
+            }*/
+
+
+
+            @media only screen and (min-width:1000px)
+            {
+                .overlay
+                {
+                    display: none;
+                }
+                
+            }
+            
+        </style>
+ 
+
+    </head>
+    
+    <body>
+        
+        <header>
+            
+            <div class="openbar">
+            
+                <div class="companylogo">
+                    
+                    <img src="logo.png" alt="logo">
+                    <a class="companyname" href="index.html"> </a>
+                    <span class="threebar" onclick="openNav()">&#9776;</span>
+                
+                </div>
+                
+                <div id="myNav" class="overlay">
+                    <a class="closex" onclick="closeNav()">X</a>
+                    <a class="companyname mobspl" href="index.html">Big Prime</a>
+                    
+                    
+                     <!--<div class="overlay-content">
+                        
+                        <div id="jssidebar" class="sidenavigation">
+                            
+                            <ul>
+                                <div class="sidenavicons">                                    
+                                    <img src="w5.png" alt="">
+                                    <li class="head bullet" onclick="javascript:displaya();">Healthcare Software</li>  
+                                </div>
+                                
+                                 <div id="sidechild1" class="hidebar">
+                                    <li><a  href="#">Hospital Studio</a></li>
+                                    <li><a  href="#">Life Science Studio</a></li>
+                                    <li><a  href="#">Disease Monitoring Kit</a></li>
+                                    <li><a  href="#">Clinics Studio</a></li>
+                                </div>
+                            
+                            </ul>
+                            
+                            <ul>
+                                <div class="sidenavicons">                                    
+                                    <img src="w6.png" alt="">
+                                    <li class="head bullet" onclick="javascript:displayb();">Business Software</li>                                
+                                </div>
+                                
+                                 <div id="sidechild2" class="hidebar">
+                                    <li><a  href="#">Manufacturing Studio</a></li>
+                                    <li><a  href="#">Business Intelligence Kit</a></li>
+                                    <li><a  href="#">Supply Chain & Logistics</a></li>
+                                    <li><a  href="#">Sales Studio</a></li>
+                                    <li><a  href="#">E-Commerce Studio</a></li>
+                                    <li><a  href="#">HR Studio</a></li>
+                                    <li><a  href="#">Projects Studio</a></li>
+                                </div>
+                            
+                            </ul>
+                            
+                            <ul>
+                                <div class="sidenavicons">                                    
+                                    <img src="w7.png" alt="">
+                                    <li class="head bullet" onclick="javascript:displayc();">Other Software</li>                                
+                                </div>
+                                
+                                 <div id="sidechild3" class="hidebar">
+                                    <li><a  href="#">Retail Studio</a></li>
+                                    <li><a  href="#">Education Studio</a></li>
+                                    <li><a  href="#">Agri Studio</a></li>
+                                </div>
+                            
+                            </ul>
+                            
+                            <ul>
+                                <div class="sidenavicons">                                    
+                                    <img src="w8.png" alt="">
+                                    <li class="head bullet" onclick="javascript:displayd();">Custom Software</li>                                
+                                </div>
+                                
+                                 <div id="sidechild4" class="hidebar">
+                                    <li><a  href="#">Technology Consulting</a></li>
+                                    <li><a  href="#">BOS Framework</a></li>
+                                    <li><a  href="#">Engineering Process</a></li>
+                                </div>
+                            
+                            </ul>
+                            
+                            <ul>
+                                <div class="sidenavicons">                                    
+                                    <img src="w9.png" alt="">
+                                    <li class="head bullet" onclick="javascript:displaye();">Artifical Intelligence</li>                                
+                                </div>
+                                
+                                 <div id="sidechild5" class="hidebar">
+                                    <li><a  href="#">SIDDY</a></li>
+                                    <li><a  href="#">AI for Business</a></li>
+                                    <li><a  href="#">Big Prime OS</a></li>
+                                    <li><a  href="#">Next Generation ERP</a></li>
+                                </div>
+                            
+                            </ul>
+                            
+                            <ul>
+                                <div class="sidenavicons">                                    
+                                    <img src="w10.png" alt="">
+                                    <li class="head bullet" onclick="javascript:displayf();">Industries</li>                                
+                                </div>
+                                
+                                 <div id="sidechild6" class="hidebar">
+                                    <li><a  href="#">Health Care</a></li>
+                                    <li><a  href="#">Government</a></li>
+                                    <li><a  href="#">Manufacturing</a></li>
+                                    <li><a  href="#">Retail</a></li>
+                                </div>
+                            
+                            </ul>
+                            
+                            <ul>
+                                <div class="sidenavicons">                                    
+                                    <img src="w11.png" alt="">
+                                    <li class="head bullet" onclick="javascript:displayg();">Company</li>                                
+                                </div>
+                                
+                                 <div id="sidechild7" class="hidebar">
+                                    <li><a  href="#">About Us</a></li>
+                                    <li><a  href="#">Careers</a></li>
+                                    <li><a  href="#">Legal</a></li>
+                                    <li><a  href="#">Sales Partners</a></li>
+                                    <li><a  href="#">Contact Us</a></li>
+                                </div>
+                            
+                            </ul>
+                            
+                            
+                            
+                        
+                        </div>
+                    
+                    </div>-->
+                
+                </div>
+                <div class="navigation">
+                
+                    <div class="fulldropdowncontainer">
+                        <a class="fulldropdownheader" href="">Products</a>
+                        <div class="fulldropdown">
+                            <div class="fulldropdownrunner">
+                                
+                                <div class="tangosection">
+                                    <p>Health OS</p>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="hospital.png" alt="">Hospital Studio
+                                            <p>End to End hospital operations & health processes</p>                     
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">
+                                        <div class="product">
+                                            <img src="virus.png" alt="">Life Science Studio
+                                            <p>Comprehensive digital hub to streamline pharma operations</p>
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">
+                                        <div class="product">
+                                            <img src="physiology.png" alt="">Disease Monitoring Kit
+                                            <p>Allows doctors to virtually engage with patients</p>                   
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">
+                                        <div class="product">
+                                            <img src="clinics.png" alt="">Clinics Studio
+                                            <p>Integrated clinical workflows with patient engagement</p>                                            
+                                        </div>                                    
+                                    </a>
+                                </div>
+                                
+                                <div class="businesssection">
+                                    <p>Business OS</p>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="conveyor.png" alt="">Manufacturing Studio
+                                            <p>Reduce development cycles and improve engineering efficiency</p>                                            
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="report.png" alt="">Business Intelligence Kit
+                                            <p>Analyze historical & real-time data from wide array of sources</p>                                            
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="truck.png" alt="">Supply Chain & Logistics
+                                            <p>Covering end to end needs for Supply Chain & Logistics</p>                                            
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="coin.png" alt="">Sales Studio
+                                            <p>Track all sales interactions in one location to enhance growth</p>                                            
+                                        </div>                                    
+                                    </a>
+                                    
+                                    
+                                
+                                </div>
+                                <div class="officesection">
+                                    <p></p>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="shopping.png" alt="">E-Commerce Studio
+                                            <p>Everything you need to build and grow your online business</p>    
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="hr.png" alt="">HR Studio
+                                            <p>Streamline and automate your HR process</p>      
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="pro.png" alt="">Project Studio
+                                            <p>Manage each project phase efficiently with custom BI</p> 
+                                        </div>                                    
+                                    </a>                                   
+                            
+                                </div>
+                                
+                                <div class="othersection">
+                                    <p></p>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="book.png" alt="">Retail Studio
+                                            <p>Track sales, products and customers across all stores</p>    
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="school.png" alt="">Education Studio
+                                            <p>Streamline and automate your HR process</p>      
+                                        </div>                                    
+                                    </a>
+                                    
+                                    <a class="" href="#">                                        
+                                        <div class="product">
+                                            <img src="leaf.png" alt="">Agriculture Studio
+                                            <p>Easily track profitability at the filed-level</p> 
+                                        </div>                                    
+                                    </a>                                   
+                            
+                                </div>
+                                <div class="fulldropdownfooter">
+                                    <p class="spl">The business products you need, together on one platform</p>
+                                    <a href="#">BOS Framework</a>                                    
+                                </div>
+                                
+                                
+                            </div>                        
+                        </div>
+                    </div>
+                
+                    <div class="dropdowncontainer">
+                        <a class="dropheader" href="">Custom Software</a>
+                        <div class="dropdown">
+                            <a class="" href="#">Technology Consulting</a>
+                            <a class="" href="#">BOS Framework</a>
+                            <a class="" href="#">Engineering Process</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdowncontainer">
+                        <a class="dropheader" href="">Artificial Intelligence </a>
+                        <div class="dropdown">
+                            <a class="" href="#">SIDDY</a>
+                            <a class="" href="#">AI For Business</a>
+                            <a class="" href="#">Big Prime OS</a>
+                            <a class="" href="#">Next Generation ERP</a>                        
+                        </div>
+                    </div>
+
+                    <div class="dropdowncontainer">
+                        <a class="dropheader"href="">Industries</a>
+                        <div class="dropdown">
+                            <a class="" href="#">Health Care</a>
+                            <a class="" href="#">Government</a>
+                            <a class="" href="#">Manufacturing</a>
+                            <a class="" href="#">Retail</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdowncontainer">
+                        <a class="dropheader" href="">Company</a>
+                            <div class="dropdown">
+                                <a class="" href="#">About Us</a>
+                                <a class="" href="#">Careers</a>
+                                <a class="" href="#">Legal</a>
+                                <a class="" href="#">Sales Partners</a>
+                                <a class="" href="#">Contact Us</a>
+                            </div>
+                    </div>
+            </div>
+            </div>
+        
+        </header>
+        
+        <nav>
+        
+        </nav>
+        
+        <aside>
+        
+        </aside>
+        
+        <section>
+        
+        </section>
+        
+        <footer>
+        
+        </footer>
+        
+
+    </body>
+
+</html>
+
+<script type="text/javascript">
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+function displaya()
+{
+if(document.getElementById("sidechild1").className == "hidebar")
+document.getElementById("sidechild1").className = "showbar";
+else
+document.getElementById("sidechild1").className = "hidebar";
+}
+function displayb(){
+if(document.getElementById("sidechild2").className == "hidebar")
+document.getElementById("sidechild2").className = "showbar";
+else
+document.getElementById("sidechild2").className = "hidebar";
+}
+function displayc(){
+if(document.getElementById("sidechild3").className == "hidebar")
+document.getElementById("sidechild3").className = "showbar";
+else
+document.getElementById("sidechild3").className = "hidebar";
+}
+function displayd(){
+if(document.getElementById("sidechild4").className == "hidebar")
+document.getElementById("sidechild4").className = "showbar";
+else
+document.getElementById("sidechild4").className = "hidebar";
+}
+function displaye(){
+if(document.getElementById("sidechild5").className == "hidebar")
+document.getElementById("sidechild5").className = "showbar";
+else
+document.getElementById("sidechild5").className = "hidebar";
+}
+function displayf(){
+if(document.getElementById("sidechild6").className == "hidebar")
+document.getElementById("sidechild6").className = "showbar";
+else
+document.getElementById("sidechild6").className = "hidebar";
+}
+function displayg(){
+if(document.getElementById("sidechild7").className == "hidebar")
+document.getElementById("sidechild7").className = "showbar";
+else
+document.getElementById("sidechild7").className = "hidebar";
+}
+</script>
